@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+:root {
+  /* color start here */
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --light-grayish-blue: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-grayish-blue: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue-hover: hsl(237, 14%, 26%);
+  --bright-blue: #3a7bfd;
+  --checkbox-background: #57ddff;
+  /* color stop here */
+  --universal-width: 80vw;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--very-dark-blue);
+  background-image: url(./images/bg-mobile-dark.jpg);
+  background-size: 100vw 27vh;
+  background-repeat: no-repeat;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+}
+nav {
+  width: var(--universal-width);
+  height: 5em;
+  margin: 2em auto 0.6em auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.4em;
+}
+
+/* input start here */
+.check-container,
+.status-clear-container,
+.footer-nav {
+  width: var(--universal-width);
+  height: 3.5em;
+  margin: 1em auto;
+  background-color: #25273c;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.checkbox-spin {
+  display: none;
+}
+.checkbox-spin + label span {
+  display: inline-block;
+  width: 25px;
+  height: 19px;
+  margin: 0 5px -4px 0;
+  /*layout relationship between check and label*/
+}
+
+.checkbox-spin + label span:before,
+.checkbox-spin + label span:after {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: transparent;
+  border: 2px solid var(--checkbox-background);
+}
+
+.checkbox-spin + label span:after {
+  z-index: 0;
+  border: none;
+}
+
+.checkbox-spin:checked + label span:before {
+  -webkit-transform: rotateZ(180deg);
+  -moz-transform: rotateZ(180deg);
+  -ms-transform: rotateZ(180deg);
+  -o-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+  background: var(--checkbox-background);
+}
+#todo-input {
+  color: #77798e;
+  font-weight: 700;
+}
+
+.todo-text {
+  background-color: transparent;
+  border: none;
+  color: #afb1c8;
+  font-size: 0.9em;
+  outline: none;
+}
+
+/* todo-list start here */
+.todo-list {
+  /* resetting the margin */
+  margin: 0 auto;
+  border-bottom: 2px solid var(--dark-grayish-blue);
+  /* resetting border radius */
+  border-radius: 0;
+  justify-content: space-between;
+}
+.check-and-label-container {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+/* border raidus in only first child */
+.todo-list:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+h4 {
+  display: inline-block;
+}
+.not-done {
+  color: white;
+  font-weight: 300;
+}
+
+/* list stop here */
+
+.status-clear-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  margin: 0 auto;
+  font-weight: 700;
+}
+.status-clear-container span {
+  margin: 0.5em;
+  color: #50526a;
+}
+
+/* navigatation bar start here */
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-nav-list {
+  list-style-type: none;
+  margin-left: 1em;
+  color: #60617c;
+}
+
+.active-nav {
+  color: #3a7bfd;
+  font-weight: 700;
+}
+
+/* tip section */
+
+.tip {
+  margin-top: 2em;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #50526a;
+  font-weight: 700;
+}
