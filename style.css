@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
 :root {
   /* color start here */
-  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-blue: #161722;
   --light-grayish-blue: hsl(234, 39%, 85%);
   --light-grayish-blue-hover: hsl(236, 33%, 92%);
   --dark-grayish-blue: hsl(234, 11%, 52%);
@@ -12,11 +12,19 @@
   /* color stop here */
   --universal-width: 80vw;
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  color: inherit;
+  text-decoration: none;
 }
 body {
   background-color: var(--very-dark-blue);
@@ -97,14 +105,34 @@ nav {
 #todo-input {
   color: #77798e;
   font-weight: 700;
+  caret-color: #b9f4eb;
 }
 
 .todo-text {
   background-color: transparent;
   border: none;
-  color: #afb1c8;
+  color: white;
   font-size: 0.9em;
   outline: none;
+  display: inline-block;
+}
+.todo-text-light {
+  color: #4d4b55;
+  font-weight: 700;
+}
+
+.todo-text::before {
+  position: absolute; /* being part of the label,lets stick it and let it catch the pointer-events */
+  content: ""; /*make it be */
+  /* size it to cover the closest relative(or absolute/fixed) parent */
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.done-text {
+  text-decoration: line-through;
 }
 
 /* todo-list start here */
@@ -116,21 +144,22 @@ nav {
   border-radius: 0;
   justify-content: space-between;
 }
+.todo-list-light {
+  background-color: white;
+  border-bottom: 2px solid #e6e5e9;
+}
 .check-and-label-container {
   display: flex;
   align-items: center;
   width: 90%;
+  position: relative;
 }
 /* border raidus in only first child */
 .todo-list:first-child {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-h4 {
-  display: inline-block;
-}
 .not-done {
-  color: white;
   font-weight: 300;
 }
 
@@ -159,19 +188,9 @@ h4 {
   list-style-type: none;
   margin-left: 1em;
   color: #60617c;
+  font-weight: 700;
 }
 
 .active-nav {
   color: #3a7bfd;
-  font-weight: 700;
-}
-
-/* tip section */
-
-.tip {
-  margin-top: 2em;
-  font-size: 1.2rem;
-  text-align: center;
-  color: #50526a;
-  font-weight: 700;
 }
